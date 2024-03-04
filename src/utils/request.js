@@ -37,7 +37,10 @@ instance.interceptors.response.use(
   },
   (err) => {
     // TODO 5. 处理401错误
-    ElMessage({ message: err.response.data.message || '服务异常', type: 'error' })
+    ElMessage({
+      message: err.response.data.message || '服务异常',
+      type: 'error'
+    })
     // 401状态跳转到登陆页面
     if (err.response.status === 401) {
       router.push('/login')
