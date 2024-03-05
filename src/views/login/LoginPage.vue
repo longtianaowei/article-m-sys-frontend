@@ -3,7 +3,7 @@ import { userLoginService, userRegisterService } from '@/api/user'
 import { useUserStore } from '@/stores'
 import { User, Lock } from '@element-plus/icons-vue'
 import { ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import router from '@/router'
 const isRegister = ref(false)
 const formModel = ref({
   username: '',
@@ -62,12 +62,10 @@ watch(isRegister, () => {
   }
 })
 const userStore = useUserStore()
-const router = useRouter()
 // 登陆API请求
 const login = async () => {
   await form.value.validator
   const res = await userLoginService(formModel.value)
-  console.log(res)
   userStore.setToken(res.data.token)
   // 登陆成功
   ElMessage.success('登陆成功')
