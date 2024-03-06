@@ -1,10 +1,11 @@
 <script setup>
+import { artAddChannelService, artEditChannelService } from '@/api/article'
 import { ref } from 'vue'
 const dialogVisible = ref(false)
 
 const open = async (row) => {
   dialogVisible.value = true
-  console.log(row)
+  formModel.value = { ...row }
 }
 
 defineExpose({
@@ -32,15 +33,34 @@ const rules = {
     }
   ]
 }
+const formRef = ref()
+const emit = defineEmits(['success'])
+const onSubmit = async () => {
+  await formRef.value.validate()
+  formModel.value.id
+    ? await artEditChannelService(formModel.value)
+    : await artAddChannelService(formModel.value)
+  ElMessage({
+    type: 'success',
+    message: formModel.value.id ? '编辑成功' : '添加成功'
+  })
+  dialogVisible.value = false
+  emit('success')
+}
 </script>
 
 <template>
-  <el-dialog v-model="dialogVisible" title="添加弹层" width="30%">
+  <el-dialog
+    v-model="dialogVisible"
+    :title="formModel.id ? '编辑分类' : '添加分类'"
+    width="30%"
+  >
     <el-form
       :model="formModel"
       :rules="rules"
       label-width="100px"
       style="padding-right: 30px"
+      ref="formRef"
     >
       <el-form-item label="分类名称" prop="cate_name">
         <el-input
@@ -60,7 +80,7 @@ const rules = {
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary"> 确认 </el-button>
+        <el-button type="primary" @click="onSubmit"> 确认 </el-button>
       </span>
     </template>
   </el-dialog>
