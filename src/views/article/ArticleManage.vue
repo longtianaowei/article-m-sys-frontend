@@ -86,10 +86,10 @@ const onSuccess = (type) => {
     </template>
     <el-form inline>
       <el-form-item label="文章分类：">
-        <ChannelSelect v-model="params.cate_id"></ChannelSelect>
+        <ChannelSelect v-model="params.cate_id" width="150px"></ChannelSelect>
       </el-form-item>
       <el-form-item label="发布状态：">
-        <el-select v-model="params.state">
+        <el-select v-model="params.state" style="width: 100px">
           <el-option label="已发布" value="已发布"></el-option>
           <el-option label="草稿" value="草稿"></el-option>
         </el-select>

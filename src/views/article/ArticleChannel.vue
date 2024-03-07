@@ -35,7 +35,6 @@ const onDelChannel = async (row) => {
 const loading = ref(false)
 const dialog = ref()
 const onAddChannel = () => {
-  // dialog.value.open({})
   dialog.value.open({})
 }
 </script>

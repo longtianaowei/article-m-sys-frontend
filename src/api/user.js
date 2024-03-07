@@ -8,3 +8,9 @@ export const userLoginService = ({ username, password }) =>
 export const userGetInfoService = () => {
   return request.get('/my/userinfo')
 }
+export const userUpdateInfoService = ({ id, nickname, email }) =>
+  request.put('/my/userinfo', { id, nickname, email })
+export const userUploadAvatarService = (avatar) =>
+  request.patch('/my/update/avatar', { avatar })
+export const userUpdatePassService = ({ old_pwd, new_pwd, re_pwd }) =>
+  request.patch('/my/updatepwd', { old_pwd, new_pwd, re_pwd })
