@@ -1,35 +1,13 @@
-# maomaobigevents
+# **文章管理系统**
 
-This template should help get you started developing with Vue 3 in Vite.
+基于 Vue 3+Pinia+Element Plus+Node.js+Express.js+MySQL 的文章管理系统，实现了管理 IT 相关的文章，用户认证与授权功能，允许注册用户创建、编辑和删除文章，文章分类与标签、搜索等功能。
 
-## Recommended IDE Setup
+通过Element Plus组件库和自定义CSS样式设计的用户界面，为了优化页面加载速度和性能，采用懒加载、异步加载等技术，以提供良好的用户体验。
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+利用 Pinia 管理应用状态，确保各组件之间的数据共享和一致性。
 
-## Customize configuration
+后端采用node使用 Express.js 框架，设计并编写了后端 RESTful 风格的 API，实现了用户登陆注册，文章 CRUD 等功能。
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+前端地址:https://github.com/longtianaowei/article-m-sys-frontend
 
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+后端地址:https://github.com/longtianaowei/article-m-sys-backend
